@@ -1,0 +1,61 @@
+{
+ "actions": [],
+ "creation": "2020-05-23 21:01:33.727463",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "image",
+  "encoding",
+  "location",
+  "preview"
+ ],
+ "fields": [
+  {
+   "fieldname": "image",
+   "fieldtype": "Link",
+   "label": "Image",
+   "options": "File"
+  },
+  {
+   "fieldname": "encoding",
+   "fieldtype": "Code",
+   "label": "Encoding"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Code",
+   "label": "Location"
+  },
+  {
+   "fieldname": "preview",
+   "fieldtype": "HTML",
+   "label": "Preview"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2020-11-03 11:24:39.914851",
+ "modified_by": "Administrator",
+ "module": "Photos",
+ "name": "ROI",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

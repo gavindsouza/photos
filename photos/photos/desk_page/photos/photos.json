@@ -1,0 +1,31 @@
+{
+ "cards": [],
+ "category": "Modules",
+ "charts": [],
+ "creation": "2020-05-23 19:38:03.299510",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Desk Page",
+ "extends_another_page": 0,
+ "hide_custom": 0,
+ "idx": 0,
+ "is_standard": 1,
+ "label": "Photos",
+ "modified": "2020-11-03 10:33:24.741999",
+ "modified_by": "Administrator",
+ "module": "Photos",
+ "name": "Photos",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 1,
+ "shortcuts": [
+  {
+   "doc_view": "",
+   "label": "Face",
+   "link_to": "Face",
+   "type": "DocType"
+  }
+ ],
+ "shortcuts_label": "Photos"
+}

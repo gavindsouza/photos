@@ -1,0 +1,30 @@
+{
+ "actions": [],
+ "creation": "2020-11-03 11:15:03.804413",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "object"
+ ],
+ "fields": [
+  {
+   "fieldname": "object",
+   "fieldtype": "Link",
+   "label": "Object",
+   "options": "ROI"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2020-11-03 11:24:49.223698",
+ "modified_by": "Administrator",
+ "module": "Photos",
+ "name": "Object",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
