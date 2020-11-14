@@ -22,12 +22,14 @@
    "default": "0",
    "fieldname": "is_processed",
    "fieldtype": "Check",
+   "in_list_view": 1,
    "label": "Is Processed"
   },
   {
    "default": "0",
    "fieldname": "number_of_times_processed",
    "fieldtype": "Int",
+   "in_list_view": 1,
    "label": "Number of times Processed"
   },
   {
@@ -45,7 +47,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-14 12:26:55.601961",
+ "modified": "2020-11-14 14:45:46.725981",
  "modified_by": "Administrator",
  "module": "Photos",
  "name": "Photo",

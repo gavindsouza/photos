@@ -9,6 +9,9 @@ frappe.ui.form.on('Photo', {
 					is_folder: false,
 				}
 			}
+		});
+		frappe.realtime.on("refresh_photo", function(){
+			frm.reload_doc();
 		})
 	}
 });

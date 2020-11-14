@@ -11,6 +11,7 @@
   {
    "fieldname": "object",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Object",
    "options": "ROI"
   }
@@ -18,7 +19,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2020-11-03 11:24:49.223698",
+ "modified": "2020-11-14 14:46:27.197377",
  "modified_by": "Administrator",
  "module": "Photos",
  "name": "Object",

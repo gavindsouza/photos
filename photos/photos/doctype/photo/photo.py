@@ -54,4 +54,6 @@ def process_photo(photo: Photo):
     photo.is_processed = True
     photo.save()
 
+    frappe.publish_realtime('refresh_photo', user=frappe.session.user)
+
     return photo
