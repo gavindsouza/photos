@@ -10,7 +10,7 @@ frappe.ui.form.on('Photo', {
 				}
 			}
 		});
-		frappe.realtime.on("refresh_photo", function(){
+		frappe.realtime.on("refresh_photo", () => {
 			frm.reload_doc();
 		})
 	}

@@ -48,13 +48,14 @@
   {
    "fieldname": "person",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Person Identified",
    "options": "Person"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-14 19:01:30.203391",
+ "modified": "2020-11-15 01:25:08.620655",
  "modified_by": "Administrator",
  "module": "Photos",
  "name": "ROI",

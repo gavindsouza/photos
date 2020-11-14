@@ -3,6 +3,11 @@
 
 frappe.ui.form.on('ROI', {
 	onload: function(frm) {
+		frappe.realtime.on("refresh_roi", () => {
+			frm.reload_doc();
+		});
+	},
+	refresh: function(frm) {
 		const wrapper = frm.get_field("preview").$wrapper;
 		wrapper.html(`
 			<div class="img_preview">

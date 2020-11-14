@@ -5,8 +5,8 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "user",
-  "name1"
+  "person_name",
+  "user"
  ],
  "fields": [
   {
@@ -16,14 +16,14 @@
    "options": "User"
   },
   {
-   "fieldname": "name1",
+   "fieldname": "person_name",
    "fieldtype": "Data",
    "label": "Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-14 18:51:02.658258",
+ "modified": "2020-11-15 02:17:09.951683",
  "modified_by": "Administrator",
  "module": "Photos",
  "name": "Person",
@@ -43,7 +43,9 @@
   }
  ],
  "quick_entry": 1,
+ "search_fields": "person_name",
  "sort_field": "modified",
  "sort_order": "DESC",
+ "title_field": "person_name",
  "track_changes": 1
 }

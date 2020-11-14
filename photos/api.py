@@ -1,7 +1,7 @@
 import frappe
 import json
 import cv2
-from photos.utils import get_image_path
+from photos.utils import get_image_path, image_resize
 
 
 @frappe.whitelist(methods=["GET", "POST"])
@@ -18,7 +18,8 @@ def roi(name):
         ),
         (left, top), (right, bottom),
         (0, 0, 255),
-        2
+        6
     )
-    _, img = cv2.imencode('.jpg', image)
+    resized_img = image_resize(image, width=800, height=600)
+    _, img = cv2.imencode('.jpg', resized_img)
     frappe.response.filecontent = img.tobytes()
