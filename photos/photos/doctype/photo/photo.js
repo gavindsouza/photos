@@ -2,7 +2,13 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Photo', {
-	// refresh: function(frm) {
-
-	// }
+	onload: function(frm) {
+		frm.set_query("photo", () => {
+			return {
+				filters: {
+					is_folder: false,
+				}
+			}
+		})
+	}
 });

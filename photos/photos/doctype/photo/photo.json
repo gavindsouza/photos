@@ -25,6 +25,7 @@
    "label": "Is Processed"
   },
   {
+   "default": "0",
    "fieldname": "number_of_times_processed",
    "fieldtype": "Int",
    "label": "Number of times Processed"
@@ -44,7 +45,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-03 11:15:21.725820",
+ "modified": "2020-11-14 12:26:55.601961",
  "modified_by": "Administrator",
  "module": "Photos",
  "name": "Photo",

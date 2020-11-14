@@ -2,6 +2,7 @@
  "cards": [],
  "category": "Modules",
  "charts": [],
+ "charts_label": "Photos",
  "creation": "2020-05-23 19:38:03.299510",
  "developer_mode_only": 0,
  "disable_user_customization": 0,
@@ -12,7 +13,7 @@
  "idx": 0,
  "is_standard": 1,
  "label": "Photos",
- "modified": "2020-11-03 10:33:24.741999",
+ "modified": "2020-11-14 11:37:45.429441",
  "modified_by": "Administrator",
  "module": "Photos",
  "name": "Photos",
@@ -21,9 +22,21 @@
  "pin_to_top": 1,
  "shortcuts": [
   {
-   "doc_view": "",
-   "label": "Face",
-   "link_to": "Face",
+   "doc_view": "List",
+   "label": "Photos",
+   "link_to": "Photo",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "People",
+   "link_to": "Person",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Objects",
+   "link_to": "Object",
    "type": "DocType"
   }
  ],
