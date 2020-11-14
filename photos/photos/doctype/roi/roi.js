@@ -2,56 +2,41 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('ROI', {
-	refresh: function(frm) {
+	onload: function(frm) {
 		frappe.db.get_value("File", frm.doc.image, "file_url").then(payload => {
 			const file_url = payload.message? payload.message.file_url : false;
-			const is_viewable = frappe.utils.is_image_file(file_url);
+			const wrapper = frm.get_field("preview").$wrapper;
 			const box = JSON.parse(frm.doc.location).map(function(x) { return Math.ceil(x / 4) });
+			// (left, bottom), (right, bottom)
+			wrapper.html(`
+				<div style="position: relative;">
+					<canvas id="preview" class="img-responsive" style="position: absolute; left: 0; top: 0; z-index: 500;"></canvas>
+					<canvas id="cover" class="img-responsive" style="position: absolute; left: 0; top: 0; z-index: 1000;"></canvas>
+				</div>
+			`);
 
-			frm.toggle_display("preview", is_viewable);
+			const cover = document.getElementById("cover");
+			const ctx = cover.getContext("2d");
+			const canvas = document.getElementById('preview');
+			const _ctx = canvas.getContext("2d");
+			const img = new Image();
 
-			if (is_viewable) {
-				const wrapper = frm.get_field("preview").wrapper;
-				wrapper.innerHTML = `
-					<div class="img-responsive wrapper">
-						<canvas id="preview" style="z-index: 500;"></canvas>
-						<canvas id="cover" style="z-index: 1000;"></canvas>
-					</div>
-					<style>
-					#wrapper{
-						position:relative;
-					}
-					#preview,#cover{
-						position:absolute; top:0px; left:0px;
-						width:300px;
-						height:200px;
-					}
-					</style>
-				`;
-				const canvas = document.getElementById('preview');
-				const ctx = canvas.getContext('2d');
-				const canover = document.getElementById('cover');
-				const ctxover = canvas.getContext('2d');
+			img.src = file_url;
 
-				let img = new Image();
-				img.src = file_url;
+			img.onload = function () {
+				canvas.width = img.width;
+				cover.width = img.width;
+				canvas.height = img.height;
+				cover.height = img.height;
 
-				// When the image is loaded, draw it
-				img.onload = function () {
-					canvas.width = img.width;
-					canvas.height = img.height;
-
-					canover.width = img.width;
-					canover.height = img.height;
-
-					ctx.drawImage(img, 0, 0);
-					ctxover.beginPath();
-					ctxover.lineWidth = "4";
-					ctxover.strokeStyle = "red";
-					ctxover.rect(...box);
-					ctxover.stroke();
-				}
+				_ctx.drawImage(img, 0, 0);
+				ctx.beginPath();
+				ctx.rect(...box);
+				ctx.lineWidth = "4";
+				ctx.strokeStyle = "red";
+				ctx.stroke();
 			}
+
 		});
 	}
 });

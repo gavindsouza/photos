@@ -16,7 +16,9 @@
    "fieldname": "photo",
    "fieldtype": "Link",
    "label": "Photo",
-   "options": "File"
+   "options": "File",
+   "set_only_once": 1,
+   "unique": 1
   },
   {
    "default": "0",
@@ -47,7 +49,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-14 14:45:46.725981",
+ "modified": "2020-11-14 16:06:22.188183",
  "modified_by": "Administrator",
  "module": "Photos",
  "name": "Photo",

@@ -14,18 +14,22 @@
   {
    "fieldname": "image",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Image",
-   "options": "File"
+   "options": "File",
+   "reqd": 1
   },
   {
    "fieldname": "encoding",
    "fieldtype": "Code",
-   "label": "Encoding"
+   "label": "Encoding",
+   "read_only": 1
   },
   {
    "fieldname": "location",
-   "fieldtype": "Code",
-   "label": "Location"
+   "fieldtype": "Data",
+   "label": "Location",
+   "read_only": 1
   },
   {
    "fieldname": "preview",
@@ -35,7 +39,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-03 11:24:39.914851",
+ "modified": "2020-11-14 16:34:31.640945",
  "modified_by": "Administrator",
  "module": "Photos",
  "name": "ROI",
