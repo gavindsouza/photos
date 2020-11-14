@@ -22,7 +22,7 @@
  "modified": "2020-11-14 14:46:27.197377",
  "modified_by": "Administrator",
  "module": "Photos",
- "name": "Object",
+ "name": "ROI Object",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",

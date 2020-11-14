@@ -38,18 +38,18 @@
    "fieldname": "people",
    "fieldtype": "Table",
    "label": "People",
-   "options": "Person"
+   "options": "ROI Person"
   },
   {
    "fieldname": "objects",
    "fieldtype": "Table",
    "label": "Objects",
-   "options": "Object"
+   "options": "ROI Object"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-14 16:06:22.188183",
+ "modified": "2020-11-14 18:45:52.510765",
  "modified_by": "Administrator",
  "module": "Photos",
  "name": "Photo",

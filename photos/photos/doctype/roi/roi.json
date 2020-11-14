@@ -5,10 +5,12 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "preview",
+  "person",
+  "related_information_section",
   "image",
   "encoding",
-  "location",
-  "preview"
+  "location"
  ],
  "fields": [
   {
@@ -17,6 +19,7 @@
    "in_list_view": 1,
    "label": "Image",
    "options": "File",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -35,11 +38,23 @@
    "fieldname": "preview",
    "fieldtype": "HTML",
    "label": "Preview"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "related_information_section",
+   "fieldtype": "Section Break",
+   "label": "Related Information"
+  },
+  {
+   "fieldname": "person",
+   "fieldtype": "Link",
+   "label": "Person Identified",
+   "options": "Person"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-14 16:34:31.640945",
+ "modified": "2020-11-14 19:01:30.203391",
  "modified_by": "Administrator",
  "module": "Photos",
  "name": "ROI",
