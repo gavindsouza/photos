@@ -23,3 +23,16 @@ def roi(name):
     resized_img = image_resize(image, width=800, height=600)
     _, img = cv2.imencode('.jpg', resized_img)
     frappe.response.filecontent = img.tobytes()
+
+
+@frappe.whitelist()
+def filter_photo(*args, **kwargs):
+    return frappe.get_all(
+        "File",
+        filters={
+            "is_folder": False,
+            "name": ("not in", frappe.get_all("Photo", pluck="photo"))
+        },
+        fields=["name", "file_name"],
+        as_list=True
+    )

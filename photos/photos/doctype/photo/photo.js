@@ -3,13 +3,11 @@
 
 frappe.ui.form.on('Photo', {
 	onload: function(frm) {
-		frm.set_query("photo", () => {
+		frm.fields_dict["photo"].get_query = function(doc, dt, dn) {
 			return {
-				filters: {
-					is_folder: false,
-				}
+				query:"photos.api.filter_photo",
 			}
-		});
+		};
 		frappe.realtime.on("refresh_photo", () => {
 			frm.reload_doc();
 		})
