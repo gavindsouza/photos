@@ -11,7 +11,19 @@ from random import choice
 
 
 class ROI(Document):
+    def validate(self):
+        # don't let duplicate ROIs in
+        if self.name != frappe.db.exists("ROI", {
+            "encoding": self.encoding,
+            "location": self.location,
+            "image": self.image,
+        }):
+            frappe.throw("ROI already exists!", frappe.DuplicateEntryError)
+
     def after_insert(self):
+        self.process_roi()
+
+    def process_roi(self):
         known_rois = frappe.get_all("ROI", filters={"person": ("!=", "")}, fields=["person", "encoding"])
         if known_rois:
             known_face_names, known_face_encodings = zip(*[

@@ -8,11 +8,15 @@ from frappe.model.document import Document
 
 class Photo(Document):
     def validate(self):
-        # check if file type is supported
+        # TODO: check if file type is supported
         pass
 
     def after_insert(self):
         # start processing etc, maybe via frappe.enqueue
+        frappe.enqueue("photos.photos.doctype.photo.photo.process_photo", queue="long", photo=self)
+
+    def process_photo(self):
+        # re-run process photo for whatever reason
         frappe.enqueue("photos.photos.doctype.photo.photo.process_photo", queue="long", photo=self)
 
 
@@ -44,8 +48,11 @@ def process_photo(photo: Photo):
         roi.image = photo.photo
         roi.location = json.dumps(location)
         roi.encoding = json.dumps(encoding.tolist())
-        roi.insert()
-        people.append(roi.name)
+        try:
+            roi.insert()
+            people.append(roi.name)
+        except frappe.DuplicateEntryError:
+            pass
 
     for x in people:
         photo.append("people", {"face": x})

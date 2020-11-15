@@ -10,6 +10,20 @@ frappe.ui.form.on('Photo', {
 		};
 		frappe.realtime.on("refresh_photo", () => {
 			frm.reload_doc();
-		})
+		});
+	},
+	refresh: function(frm) {
+		frm.add_custom_button("Process Photo", function () {
+			frm.call("process_photo").then(r => {
+				if (!r.exc) {
+					frappe.show_alert({
+						message: "Photo processing queued successfully",
+						indicator: "green"
+					});
+				} else {
+					console.error(r);
+				}
+			});
+		});
 	}
 });
