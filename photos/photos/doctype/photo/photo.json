@@ -5,6 +5,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "preview",
   "photo",
   "is_processed",
   "number_of_times_processed",
@@ -45,11 +46,17 @@
    "fieldtype": "Table",
    "label": "Objects",
    "options": "ROI Object"
+  },
+  {
+   "fieldname": "preview",
+   "fieldtype": "HTML",
+   "label": "Preview",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-14 18:45:52.510765",
+ "modified": "2020-11-15 16:10:39.247669",
  "modified_by": "Administrator",
  "module": "Photos",
  "name": "Photo",
