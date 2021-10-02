@@ -125,11 +125,13 @@ app_license = "GNU General Public License (v3)"
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
-# override_doctype_dashboards = {
-# 	"Task": "photos.task.get_dashboard_data"
-# }
+override_doctype_dashboards = {
+	"File": "photos.utils.get_file_dashboard"
+}
 
 # exempt linked doctypes from being automatically cancelled
 #
 # auto_cancel_exempted_doctypes = ["Auto Repeat"]
 
+# TODO: figure out why this was added:
+# website_route_rules = [{'from_route': '/dashboard/<path:app_path>', 'to_route': 'dashboard'}]

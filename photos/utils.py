@@ -53,3 +53,12 @@ def image_resize(image, width=None, height=None, inter=None):
 
     # return the resized image
     return resized
+
+def get_file_dashboard(*args, **kwargs):
+    return {
+        "fieldname": "photo",
+        "transactions": [
+            {"label": "Photos", "items": ["Photo"], "fieldname": "photo"},
+            {"label": "People", "items": ["ROI"], "fieldname": "image"},
+        ],
+    }

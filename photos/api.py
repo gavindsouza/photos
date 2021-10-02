@@ -26,7 +26,7 @@ def roi(name):
     frappe.response.filecontent = img.tobytes()
 
 
-@frappe.whitelist(methods=["GET", "POST"])
+@frappe.whitelist(methods=["GET"])
 def photo(name, roi=False):
     photo = frappe.get_doc("Photo", name)
     _file = frappe.get_doc("File", photo.photo)

@@ -1,4 +1,4 @@
-frappe
+# frappe -- https://github.com/frappe/frappe is installed via 'bench init'
 face-recognition
 numpy
 opencv-python

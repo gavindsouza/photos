@@ -4,3 +4,4 @@
 *.swp
 tags
 photos/docs/current
+__pycache__/

@@ -13,11 +13,13 @@ from random import choice
 class ROI(Document):
     def validate(self):
         # don't let duplicate ROIs in
-        if self.name != frappe.db.exists("ROI", {
+        doc_exists = frappe.db.exists("ROI", {
             "encoding": self.encoding,
             "location": self.location,
             "image": self.image,
-        }):
+        })
+
+        if doc_exists and self.name != doc_exists:
             frappe.throw("ROI already exists!", frappe.DuplicateEntryError)
 
     def after_insert(self):
