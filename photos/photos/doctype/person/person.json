@@ -6,7 +6,8 @@
  "engine": "InnoDB",
  "field_order": [
   "person_name",
-  "user"
+  "user",
+  "person_image"
  ],
  "fields": [
   {
@@ -18,12 +19,17 @@
   {
    "fieldname": "person_name",
    "fieldtype": "Data",
-   "label": "Name"
+   "label": "Person Name"
+  },
+  {
+   "fieldname": "person_image",
+   "fieldtype": "Attach Image",
+   "label": "Profile Pic"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-15 02:17:09.951683",
+ "modified": "2020-11-16 18:16:59.393718",
  "modified_by": "Administrator",
  "module": "Photos",
  "name": "Person",
