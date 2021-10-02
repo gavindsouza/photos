@@ -1,14 +1,15 @@
-# -*- coding: utf-8 -*-
 # Copyright (c) 2020, Gavin D'souza and contributors
 # For license information, please see license.txt
 
 import frappe
 from frappe.model.document import Document
 
-
 class Photo(Document):
     def validate(self):
-        # TODO: check if file type is supported
+        # TODO checklist:
+        # - check if file type is supported
+        # - extract and save image meta data
+        # - probably parse and save as JSON which can be updated via the UI and written to the file
         pass
 
     def after_insert(self):
@@ -31,6 +32,7 @@ def process_photo(photo: Photo):
     """
     import json
 
+    # import cv2
     import face_recognition
     import numpy as np
     from frappe.core.doctype.file.file import get_local_image
@@ -40,6 +42,8 @@ def process_photo(photo: Photo):
         frappe.db.get_value("File", photo.photo, "file_url")
     )
     img = np.asarray(image)
+    # TODO: make image smaller? check if necessary and x4 box sizes before saving them
+    # img = cv2.resize(np.asarray(image), (0, 0), fx=0.25, fy=0.25)
     boxes = face_recognition.face_locations(img, model='hog')
     encodings = face_recognition.face_encodings(img, boxes)
 
