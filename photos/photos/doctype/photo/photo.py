@@ -16,6 +16,7 @@ class Photo(Document):
         # start processing etc, maybe via frappe.enqueue
         frappe.enqueue("photos.photos.doctype.photo.photo.process_photo", queue="long", photo=self)
 
+    @frappe.whitelist()
     def process_photo(self):
         # re-run process photo for whatever reason
         frappe.enqueue("photos.photos.doctype.photo.photo.process_photo", queue="long", photo=self)
