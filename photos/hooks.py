@@ -133,5 +133,11 @@ override_doctype_dashboards = {
 #
 # auto_cancel_exempted_doctypes = ["Auto Repeat"]
 
-# TODO: figure out why this was added:
-# website_route_rules = [{'from_route': '/dashboard/<path:app_path>', 'to_route': 'dashboard'}]
+website_context = {
+	"favicon": "/assets/photos/favicon.ico",
+	"splash_image": "/assets/photos/logo.svg"
+}
+
+website_route_rules = [
+	{'from_route': '/gallery/<path:app_path>', 'to_route': 'gallery'},
+]

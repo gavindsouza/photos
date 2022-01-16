@@ -1,28 +1,19 @@
 {
- "category": "Modules",
  "charts": [],
- "charts_label": "Photos",
  "content": "[{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Photos\",\"col\":4}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"People\",\"col\":4}}]",
  "creation": "2020-05-23 19:38:03.299510",
- "developer_mode_only": 0,
- "disable_user_customization": 0,
  "docstatus": 0,
  "doctype": "Workspace",
- "extends_another_page": 0,
  "hide_custom": 0,
  "icon": "scan",
  "idx": 0,
- "is_default": 0,
- "is_standard": 1,
  "label": "Photos",
  "links": [],
- "modified": "2021-10-02 16:54:35.636487",
+ "modified": "2022-01-16 01:16:12.423276",
  "modified_by": "Administrator",
  "module": "Photos",
  "name": "Photos",
  "owner": "Administrator",
- "pin_to_bottom": 0,
- "pin_to_top": 1,
  "public": 1,
  "roles": [],
  "sequence_id": 0,
@@ -30,8 +21,10 @@
   {
    "color": "Cyan",
    "doc_view": "List",
+   "format": "{} Processed",
    "label": "Photos",
    "link_to": "Photo",
+   "stats_filter": "{\"is_processed\":[\"=\",1]}",
    "type": "DocType"
   },
   {
@@ -40,9 +33,9 @@
    "format": "{} Faces",
    "label": "People",
    "link_to": "ROI",
+   "stats_filter": "{\"person\":[\"is\",\"set\"]}",
    "type": "DocType"
   }
  ],
- "shortcuts_label": "Photos",
  "title": "Photos"
 }
