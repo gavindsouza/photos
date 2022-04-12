@@ -1,0 +1,28 @@
+{
+  "name": "gallery",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --base=/assets/photos/gallery/ && yarn copy-html-entry",
+    "preview": "vite preview",
+    "copy-html-entry": "cp ../photos/public/gallery/index.html ../photos/www/gallery.html"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/vue-fontawesome": "^2.0.6",
+    "@headlessui/vue": "^1.4.3",
+    "@heroicons/vue": "^1.0.5",
+    "frappe-ui": "^0.0.13",
+    "socket.io-client": "^2.4.0",
+    "vue": "^3.2.25",
+    "vue-router": "^4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.0.0",
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.15",
+    "vite": "^2.7.2"
+  }
+}

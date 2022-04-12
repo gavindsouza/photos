@@ -1,0 +1,18 @@
+{
+  "name": "photos",
+  "version": "1.0.0",
+  "description": "Open Source Alternative to Google Photos",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gavindsouza/photos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gavindsouza/photos/issues"
+  },
+  "homepage": "https://github.com/gavindsouza/photos#readme",
+  "dependencies": {}
+}
