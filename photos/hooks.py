@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-from . import __version__ as app_version
-
 app_name = "photos"
 app_title = "Photos"
 app_publisher = "Gavin D'souza"
@@ -9,7 +5,7 @@ app_description = "Open Source Alternative to Google Photos"
 app_icon = "octicon octicon-file-directory"
 app_color = "orange"
 app_email = "gavin18d@gmail.com"
-app_license = "GNU General Public License (v3)"
+app_license = "MIT"
 
 # Includes in <head>
 # ------------------
@@ -43,7 +39,7 @@ app_license = "GNU General Public License (v3)"
 
 # website user home page (by Role)
 # role_home_page = {
-#	"Role": "home_page"
+# 	"Role": "home_page"
 # }
 
 # Website user home page (by function)
@@ -83,11 +79,7 @@ app_license = "GNU General Public License (v3)"
 # ---------------
 # Hook on document methods and events
 
-doc_events = {
-	"File": {
-		"after_insert": "photos.utils.process_file"
-	}
-}
+doc_events = {"File": {"after_insert": "photos.utils.process_file"}}
 
 # Scheduled Tasks
 # ---------------
@@ -125,19 +117,17 @@ doc_events = {
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
-override_doctype_dashboards = {
-	"File": "photos.utils.get_file_dashboard"
-}
+override_doctype_dashboards = {"File": "photos.utils.get_file_dashboard"}
 
 # exempt linked doctypes from being automatically cancelled
 #
 # auto_cancel_exempted_doctypes = ["Auto Repeat"]
 
 website_context = {
-	"favicon": "/assets/photos/favicon.ico",
-	"splash_image": "/assets/photos/logo.svg"
+    "favicon": "/assets/photos/favicon.ico",
+    "splash_image": "/assets/photos/logo.svg",
 }
 
 website_route_rules = [
-	{'from_route': '/gallery/<path:app_path>', 'to_route': 'gallery'},
+    {"from_route": "/gallery/<path:app_path>", "to_route": "gallery"},
 ]

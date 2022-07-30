@@ -1,23 +1,25 @@
-# -*- coding: utf-8 -*-
 # Copyright (c) 2020, Gavin D'souza and contributors
 # For license information, please see license.txt
-
-from frappe.model.document import Document
 import json
-import numpy as np
-import frappe
-import face_recognition
 from random import choice
+
+import face_recognition
+import frappe
+import numpy as np
+from frappe.model.document import Document
 
 
 class ROI(Document):
     def validate(self):
         # don't let duplicate ROIs in
-        doc_exists = frappe.db.exists("ROI", {
-            "encoding": self.encoding,
-            "location": self.location,
-            "image": self.image,
-        })
+        doc_exists = frappe.db.exists(
+            "ROI",
+            {
+                "encoding": self.encoding,
+                "location": self.location,
+                "image": self.image,
+            },
+        )
 
         if doc_exists and self.name != doc_exists:
             frappe.throw("ROI already exists!", frappe.DuplicateEntryError)
@@ -26,15 +28,16 @@ class ROI(Document):
         self.process_roi()
 
     def process_roi(self):
-        known_rois = frappe.get_all("ROI", filters={"person": ("!=", "")}, fields=["person", "encoding"])
+        known_rois = frappe.get_all(
+            "ROI", filters={"person": ("!=", "")}, fields=["person", "encoding"]
+        )
         if known_rois:
-            known_face_names, known_face_encodings = zip(*[
-                (x.person, json.loads(x.encoding)) for x in known_rois
-            ])
+            known_face_names, known_face_encodings = zip(
+                *[(x.person, json.loads(x.encoding)) for x in known_rois]
+            )
             unknown_encoding = json.loads(self.encoding)
             matches = face_recognition.compare_faces(
-                np.asarray(known_face_encodings),
-                np.asarray(unknown_encoding)
+                np.asarray(known_face_encodings), np.asarray(unknown_encoding)
             )
             # # If a match was found in known_face_encodings, just use the first one.
             if True in matches:
@@ -51,19 +54,24 @@ def process_labelled_photos():
     """
     # frappe develop seems to have a bug which returns empty list if person is
     # filtered by None. So, using "" as replacement, since that works...
-    known_rois = frappe.get_all("ROI", filters={"person": ("!=", "")}, fields=["person", "encoding"])
+    known_rois = frappe.get_all(
+        "ROI", filters={"person": ("!=", "")}, fields=["person", "encoding"]
+    )
 
-    unrecognized_rois = frappe.get_all("ROI", filters={"person": ""}, fields=["name", "encoding"])
+    unrecognized_rois = frappe.get_all(
+        "ROI", filters={"person": ""}, fields=["name", "encoding"]
+    )
     recognized_photos = {}
 
     # match unknown encodings with known ones
     if known_rois:
-        known_face_names, known_face_encodings = zip(*[(x.person, json.loads(x.encoding)) for x in known_rois])
+        known_face_names, known_face_encodings = zip(
+            *[(x.person, json.loads(x.encoding)) for x in known_rois]
+        )
         for unknown in unrecognized_rois:
             unknown_encoding = json.loads(unknown.encoding)
             matches = face_recognition.compare_faces(
-                np.asarray(known_face_encodings),
-                np.asarray(unknown_encoding)
+                np.asarray(known_face_encodings), np.asarray(unknown_encoding)
             )
             # # If a match was found in known_face_encodings, just use the first one.
             if True in matches:
@@ -76,7 +84,9 @@ def process_labelled_photos():
             frappe.db.set_value("ROI", roi, "person", person)
 
         # remove any newly found entries from the unrecognized photos
-        unrecognized_rois = [x for x in unrecognized_rois if x.name not in recognized_photos]
+        unrecognized_rois = [
+            x for x in unrecognized_rois if x.name not in recognized_photos
+        ]
 
     return unrecognized_rois
 

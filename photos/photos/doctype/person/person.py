@@ -1,11 +1,13 @@
 # Copyright (c) 2020, Gavin D'souza and contributors
 # For license information, please see license.txt
+import json
 
+import cv2
 import frappe
 from frappe.model.document import Document
-import json
-import cv2
-from photos.utils import get_image_path, image_resize
+
+from photos.utils import get_image_path
+
 
 class Person(Document):
     def validate(self):
@@ -30,13 +32,11 @@ class Person(Document):
             limit_page_length=1,
             order_by="creation desc",
             fields=["image", "location"],
-            as_list=True
+            as_list=True,
         )
         if result:
             _image, location = result[0]
-            image_path = get_image_path(
-                frappe.db.get_value("File", _image, "file_url")
-            )
+            image_path = get_image_path(frappe.db.get_value("File", _image, "file_url"))
             top, right, bottom, left = json.loads(location)
             # TODO: fix cropping logic
             img_cropped = cv2.imread(image_path)[left:right, top:bottom]

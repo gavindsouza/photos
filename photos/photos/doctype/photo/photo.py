@@ -1,10 +1,11 @@
 # Copyright (c) 2020, Gavin D'souza and contributors
 # For license information, please see license.txt
-
 from contextlib import suppress
+
 import frappe
 from frappe.exceptions import DuplicateEntryError
 from frappe.model.document import Document
+
 
 class Photo(Document):
     def validate(self):
@@ -16,12 +17,16 @@ class Photo(Document):
 
     def after_insert(self):
         # start processing etc, maybe via frappe.enqueue
-        frappe.enqueue("photos.photos.doctype.photo.photo.process_photo", queue="long", photo=self)
+        frappe.enqueue(
+            "photos.photos.doctype.photo.photo.process_photo", queue="long", photo=self
+        )
 
     @frappe.whitelist()
     def process_photo(self):
         # re-run process photo for whatever reason
-        frappe.enqueue("photos.photos.doctype.photo.photo.process_photo", queue="long", photo=self)
+        frappe.enqueue(
+            "photos.photos.doctype.photo.photo.process_photo", queue="long", photo=self
+        )
 
 
 def process_photo(photo: Photo):
@@ -47,7 +52,7 @@ def process_photo(photo: Photo):
     img = np.asarray(image)
     # TODO: make image smaller? check if necessary and x4 box sizes before saving them
     # img = cv2.resize(np.asarray(image), (0, 0), fx=0.25, fy=0.25)
-    boxes = face_recognition.face_locations(img, model='hog')
+    boxes = face_recognition.face_locations(img, model="hog")
     encodings = face_recognition.face_encodings(img, boxes)
 
     for (encoding, location) in zip(encodings, boxes):
@@ -66,6 +71,6 @@ def process_photo(photo: Photo):
     photo.is_processed = True
     photo.save()
 
-    frappe.publish_realtime('refresh_photo', user=frappe.session.user)
+    frappe.publish_realtime("refresh_photo", user=frappe.session.user)
 
     return photo
