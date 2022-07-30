@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 # Copyright (c) 2020, Gavin D'souza and Contributors
 # See license.txt
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from frappe.core.doctype.file.file import File
+    from photos.photos.doctype.photo.photo import Photo
 
 
 def get_image_path(file_url):
@@ -62,3 +67,16 @@ def get_file_dashboard(*args, **kwargs):
             {"label": "People", "items": ["ROI"], "fieldname": "image"},
         ],
     }
+
+def process_file(file: "File", event: str) -> "Photo":
+    if event != "after_insert":
+        raise NotImplementedError
+
+    import frappe
+
+    if not file.content_type.startswith("image"):
+        return
+
+    photo = frappe.new_doc("Photo")
+    photo.photo = file.name
+    return photo.save()

@@ -83,11 +83,11 @@ app_license = "GNU General Public License (v3)"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"File": {
-# 		"after_insert": "photos.api.generate_encodings"
-# 	}
-# }
+doc_events = {
+	"File": {
+		"after_insert": "photos.utils.process_file"
+	}
+}
 
 # Scheduled Tasks
 # ---------------

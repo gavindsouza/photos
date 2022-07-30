@@ -1,6 +1,6 @@
 {
  "actions": [],
- "creation": "2020-11-14 18:51:02.658258",
+ "creation": "2021-11-12 15:33:36.846024",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -29,7 +29,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-16 18:16:59.393718",
+ "modified": "2022-07-29 21:48:01.714254",
  "modified_by": "Administrator",
  "module": "Photos",
  "name": "Person",
@@ -50,8 +50,10 @@
  ],
  "quick_entry": 1,
  "search_fields": "person_name",
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "title_field": "person_name",
  "track_changes": 1
 }

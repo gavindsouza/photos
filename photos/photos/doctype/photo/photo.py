@@ -1,7 +1,9 @@
 # Copyright (c) 2020, Gavin D'souza and contributors
 # For license information, please see license.txt
 
+from contextlib import suppress
 import frappe
+from frappe.exceptions import DuplicateEntryError
 from frappe.model.document import Document
 
 class Photo(Document):
@@ -53,11 +55,9 @@ def process_photo(photo: Photo):
         roi.image = photo.photo
         roi.location = json.dumps(location)
         roi.encoding = json.dumps(encoding.tolist())
-        try:
+        with suppress(DuplicateEntryError):
             roi.insert()
             people.append(roi.name)
-        except frappe.DuplicateEntryError:
-            pass
 
     for x in people:
         photo.append("people", {"face": x})
