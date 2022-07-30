@@ -7,3 +7,4 @@ photos/docs/current
 __pycache__/
 node_modules
 .vscode
+build/

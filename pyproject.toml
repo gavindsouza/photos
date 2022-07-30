@@ -1,0 +1,31 @@
+[build-system]
+requires = [
+    "hatchling>=1.6.0",
+]
+build-backend = "hatchling.build"
+
+[project]
+name = "photos"
+description = "Open Source Alternative to Google Photos"
+readme = "README.md"
+license = "MIT"
+authors = [
+    { name = "Gavin Dsouza", email = "gavin18d@gmail.com" },
+]
+dependencies = [
+    # frappe (installed via bench) # MIT
+    "face-recognition", # MIT
+    "numpy", # BSD-3
+    "opencv-python", # MIT
+]
+dynamic = [
+    "version",
+]
+
+[tool.hatch.version]
+path = "photos/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/photos",
+]
