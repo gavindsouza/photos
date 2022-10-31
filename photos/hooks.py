@@ -123,6 +123,8 @@ override_doctype_dashboards = {"File": "photos.utils.get_file_dashboard"}
 #
 # auto_cancel_exempted_doctypes = ["Auto Repeat"]
 
+app_logo_url = "/assets/photos/logo.svg"
+
 website_context = {
     "favicon": "/assets/photos/favicon.ico",
     "splash_image": "/assets/photos/logo.svg",

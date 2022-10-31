@@ -71,6 +71,9 @@ def process_photo(photo: Photo):
     photo.is_processed = True
     photo.save()
 
-    frappe.publish_realtime("refresh_photo", user=frappe.session.user)
+    frappe.publish_realtime(
+        "refresh_photo", user=frappe.session.user, after_commit=True
+    )
+    # TODO: Show msgprint to user that photo has been processed
 
     return photo

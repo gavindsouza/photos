@@ -53,7 +53,7 @@ def photo(name, roi=False):
 
 @frappe.whitelist()
 def filter_photo(*args, **kwargs):
-    return frappe.get_all(
+    return frappe.get_list(
         "File",
         filters={
             "is_folder": False,
