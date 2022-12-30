@@ -74,10 +74,10 @@ def process_file(file: "File", event: str) -> "Photo":
     if event != "after_insert":
         raise NotImplementedError
 
-    import frappe
-
-    if not file.content_type.startswith("image"):
+    if file.is_folder or not file.content_type.startswith("image"):
         return
+
+    import frappe
 
     photo = frappe.new_doc("Photo")
     photo.photo = file.name
