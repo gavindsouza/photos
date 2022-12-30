@@ -6,6 +6,8 @@ The initial inspiration for this project was to be an `Open Source Alternative t
 
 https://user-images.githubusercontent.com/36654812/199225140-0790b589-6d0d-4f34-b45d-294b0b061831.mp4
 
+Clone the repo and run `docker compose up` in the demo folder to spin up a demo instance :)
+
 #### Usage
 
 You may follow these steps to try out Photos:
