@@ -1,6 +1,10 @@
 # Copyright (c) 2020, Gavin D'souza and Contributors
 # See license.txt
+from collections.abc import Iterable
 from typing import TYPE_CHECKING
+
+import cv2
+import frappe
 
 if TYPE_CHECKING:
     from frappe.core.doctype.file.file import File
@@ -8,9 +12,7 @@ if TYPE_CHECKING:
     from photos.photos.doctype.photo.photo import Photo
 
 
-def get_image_path(file_url):
-    import frappe
-
+def get_image_path(file_url: str):
     if file_url.startswith("/private"):
         file_url_path = (file_url.lstrip("/"),)
     else:
@@ -18,16 +20,16 @@ def get_image_path(file_url):
     return frappe.get_site_path(*file_url_path)
 
 
-def chunk(iterable, chunk_size):
+def chunk(iterable: Iterable, chunk_size: int):
     """Creates list of elements split into groups of n."""
     for i in range(0, len(iterable), chunk_size):
         yield iterable[i : i + chunk_size]
 
 
-def image_resize(image, width=None, height=None, inter=None):
-    import cv2
-
-    if not inter:
+def image_resize(
+    image, width: int | None = None, height: int | None = None, inter: int | None = None
+):
+    if inter is None:
         inter = cv2.INTER_AREA
     # initialize the dimensions of the image to be resized and
     # grab the image size
@@ -76,8 +78,6 @@ def process_file(file: "File", event: str) -> "Photo":
 
     if file.is_folder or not file.content_type.startswith("image"):
         return
-
-    import frappe
 
     photo = frappe.new_doc("Photo")
     photo.photo = file.name

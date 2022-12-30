@@ -40,7 +40,6 @@ def process_photo(photo: Photo):
     """
     import json
 
-    # import cv2
     import face_recognition
     import numpy as np
     from frappe.core.doctype.file.file import get_local_image

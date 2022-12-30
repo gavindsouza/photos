@@ -7,7 +7,7 @@ from photos.utils import get_image_path, image_resize
 
 
 @frappe.whitelist(methods=["GET", "POST"])
-def roi(name):
+def roi(name: str):
     location, img = frappe.db.get_value("ROI", name, ["location", "image"])
     _file = frappe.get_doc("File", img)
     top, right, bottom, left = json.loads(location)
@@ -28,7 +28,7 @@ def roi(name):
 
 
 @frappe.whitelist(methods=["GET"])
-def photo(name, roi=False):
+def photo(name: str, roi: bool = False):
     photo = frappe.get_doc("Photo", name)
     _file = frappe.get_doc("File", photo.photo)
     image = cv2.imread(get_image_path(_file.file_url))
