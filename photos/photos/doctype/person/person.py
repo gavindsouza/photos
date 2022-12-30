@@ -2,7 +2,6 @@
 # For license information, please see license.txt
 import json
 
-import cv2
 import frappe
 from frappe.model.document import Document
 
@@ -35,6 +34,8 @@ class Person(Document):
             as_list=True,
         )
         if result:
+            import cv2
+
             _image, location = result[0]
             image_path = get_image_path(frappe.db.get_value("File", _image, "file_url"))
             top, right, bottom, left = json.loads(location)

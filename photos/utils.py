@@ -3,7 +3,6 @@
 from collections.abc import Iterable
 from typing import TYPE_CHECKING
 
-import cv2
 import frappe
 
 if TYPE_CHECKING:
@@ -29,6 +28,8 @@ def chunk(iterable: Iterable, chunk_size: int):
 def image_resize(
     image, width: int | None = None, height: int | None = None, inter: int | None = None
 ):
+    import cv2
+
     if inter is None:
         inter = cv2.INTER_AREA
     # initialize the dimensions of the image to be resized and
