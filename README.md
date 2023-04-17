@@ -4,7 +4,8 @@ The initial inspiration for this project was to be an `Open Source Alternative t
 
 #### Demo
 
-https://user-images.githubusercontent.com/36654812/199225140-0790b589-6d0d-4f34-b45d-294b0b061831.mp4
+<video src="https://user-images.githubusercontent.com/36654812/199225140-0790b589-6d0d-4f34-b45d-294b0b061831.mp4" data-canonical-src="https://user-images.githubusercontent.com/36654812/199225140-0790b589-6d0d-4f34-b45d-294b0b061831.mp4" style="max-height:480px; min-height: 200px; width: -webkit-fill-available;" controls muted>
+</video>
 
 Clone the repo and run `docker compose up` in the demo folder to spin up a demo instance :)
 
