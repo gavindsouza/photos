@@ -2,7 +2,7 @@
 
 AI Powered Facial Recognition & Photos Clustering (like Google Photos) for your Frappe sites.
 
-[![Try on Frappe Cloud](./.github/assets/try-on-fc.png)](https://frappecloud.com/marketplace/apps/photos?referrer=a6d8da54)
+[![Try on Frappe Cloud](https://github.com/gavindsouza/photos/raw/main/.github/assets/try-on-fc.png)](https://frappecloud.com/marketplace/apps/photos?referrer=a6d8da54)
 
 #### Demo
 
