@@ -1,6 +1,8 @@
 ## Photos
 
-The initial inspiration for this project was to be an `Open Source Alternative to Google Photos`. However, I've only been able to make a week's time for this in 2 years. If you're seriously looking for an open source alternative to Google Photos, I'd recommend https://photoprism.app/ which is everyting I wanted to build when I thought of doing this 4 years ago ^_^
+AI Powered Facial Recognition & Photos Clustering (like Google Photos) for your Frappe sites.
+
+[![Try on Frappe Cloud](./.github/assets/try-on-fc.png)](https://frappecloud.com/marketplace/apps/photos?referrer=a6d8da54)
 
 #### Demo
 
@@ -37,6 +39,10 @@ This project consists of:
 
 - Photos: A Frappe App that contains the backend logic & Admin views
 - Gallery: A Vue 3 App that contains the tailored gallery UI _[WIP]_
+
+#### Motivation
+
+The initial inspiration for this project was to be an `Open Source Alternative to Google Photos`. However, I've only been able to make a week's time for this in 2 years. If you're seriously looking for an open source alternative to Google Photos, I'd recommend https://photoprism.app/ which is everyting I wanted to build when I thought of doing this back in 2018 ^_^
 
 #### License
 
