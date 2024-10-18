@@ -16,7 +16,9 @@ services:
     image: redis:alpine
 
   frappe:
-    image: frappe/bench:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     command: bash /workspace/init.sh
     environment:
       - SHELL=/bin/bash
