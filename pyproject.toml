@@ -29,3 +29,10 @@ path = "photos/__init__.py"
 include = [
     "/photos",
 ]
+
+[deploy.dependencies.apt]
+packages = [
+    "ffmpeg",
+    "libsm6",
+    "libxext6"
+]
